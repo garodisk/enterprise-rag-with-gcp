@@ -21,7 +21,7 @@ class Settings:
     # --- LLM (Groq) ---
     GROQ_API_KEY = os.getenv("GROQ_API_KEY")
     GROQ_FALLBACK_API_KEY = os.getenv("GROQ_FALLBACK_API_KEY")
-    GROQ_MODEL = "llama-3.3-70b-versatile"
+    GROQ_MODEL = "openai/gpt-oss-20b"
 
     # --- LLM Gateway (Portkey) ---
     PORTKEY_API_KEY = os.getenv("PORTKEY_API_KEY")
