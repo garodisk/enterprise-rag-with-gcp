@@ -65,3 +65,4 @@ terraform/terraform.tfstate
 terraform/terraform.tfstate.backup
 
 commands_for_gcloud.md
+cloudrun-env.yaml
