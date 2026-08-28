@@ -1,14 +1,9 @@
 import logfire
 from app.agents.state import AgentState
-from langchain_groq import ChatGroq
+from app.gateway import get_langchain_llm
 from app.config import settings
 
-llm = ChatGroq(
-    api_key=settings.GROQ_API_KEY,
-    model=settings.GROQ_MODEL,
-    temperature=0.1
-)
-
+llm = get_langchain_llm(feature="responder")
 def generate_node(state: AgentState):
     """
     Synthesizes a response using both Documentation Context AND Conversation History.

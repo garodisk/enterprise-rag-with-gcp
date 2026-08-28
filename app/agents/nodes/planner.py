@@ -2,13 +2,16 @@ from app.agents.state import AgentState
 from langchain_groq import ChatGroq
 from app.config import settings
 import logfire
+from app.gateway import get_langchain_llm
 
-# Portkey-backed LLM: fallback + cache + retry — same .invoke() interface as ChatGroq
-llm = ChatGroq(
-    api_key=settings.GROQ_API_KEY,
-    model=settings.GROQ_MODEL,
-    temperature=0
-)
+llm = get_langchain_llm(feature="planner")
+
+# # Portkey-backed LLM: fallback + cache + retry — same .invoke() interface as ChatGroq
+# llm = ChatGroq(
+#     api_key=settings.GROQ_API_KEY,
+#     model=settings.GROQ_MODEL,
+#     temperature=0
+# )
 def planner_node(state: AgentState):
     """
     The Planner determines if a search is needed based on the ENTIRE conversation.

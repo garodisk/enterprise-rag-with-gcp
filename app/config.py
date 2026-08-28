@@ -21,13 +21,26 @@ class Settings:
     # --- LLM (Groq) ---
     GROQ_API_KEY = os.getenv("GROQ_API_KEY")
     GROQ_FALLBACK_API_KEY = os.getenv("GROQ_FALLBACK_API_KEY")
-    GROQ_MODEL = "openai/gpt-oss-20b"
+    GROQ_MODEL = "qwen/qwen3.6-27b"
 
     # --- LLM Gateway (Portkey) ---
     PORTKEY_API_KEY = os.getenv("PORTKEY_API_KEY")
     PORTKEY_CONFIG_ID = os.getenv("PORTKEY_CONFIG_ID")
-    GROQ_SLUG = "rag"     # primary virtual key: @rag/llama-3.3-70b-versatile
-    GROQ_SLUG_2 = "brag"  # fallback virtual key: @brag/llama-3.1-8b-instant
+    # One Portkey Groq integration slug
+    GROQ_SLUG = os.getenv("GROQ_SLUG", "groq-main")
+    # GROQ_SLUG = "groq-primary"     # primary virtual key: @rag/llama-3.3-70b-versatile
+    # GROQ_SLUG_2 = "brag"  # fallback virtual key: @brag/llama-3.1-8b-instant
+
+    # Models routed through that same Groq integration
+    PORTKEY_PRIMARY_MODEL = os.getenv(
+    "PORTKEY_PRIMARY_MODEL",
+    "meta-llama/llama-4-scout-17b-16e-instruct"
+    )
+
+    PORTKEY_FALLBACK_MODEL = os.getenv(
+        "PORTKEY_FALLBACK_MODEL",
+        "llama-3.1-8b-instant"
+    )
 
     # --- Guardrails (NVIDIA) ---
     NVIDIA_API_KEY = os.getenv("NVIDIA_API_KEY")

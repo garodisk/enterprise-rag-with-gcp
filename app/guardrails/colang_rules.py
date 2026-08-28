@@ -17,6 +17,14 @@ define user ask off topic
   "tell me about world history"
   "what is the best restaurant near me"
 
+  "who is salman khan"
+  "tell me about salman khan"
+  "who is tom cruise"
+  "tell me about a celebrity"
+  "who is this actor"
+  "tell me about bollywood"
+  "what movies has salman khan acted in"
+
 define bot refuse off topic
   "I'm an Enterprise IT Assistant focused on Kubernetes, Intel hardware, and networking. I can't help with that — but ask me anything technical!"
 
